@@ -6,16 +6,14 @@ const getArgValue = (argName) => {
     return (argIndex !== -1 && argIndex < process.argv.length - 1) ? process.argv[argIndex + 1] : null;
 };
 
-// Get the value of the --name argument
 const name = getArgValue('--name');
 
 if (name) {
     fetchProducts(name)
-    console.log(`The value of --name is: ${name}`);
+    console.log(`Looking for products with: ${name}`);
 } else {
     console.log('--name parameter is not provided.');
 }
-// products(first: 50 query: "title: ${title}") {
 
 async function fetchProducts(verifyTitle) {
     const query = `
